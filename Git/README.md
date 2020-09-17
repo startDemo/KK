@@ -37,13 +37,19 @@
 
 ### Git 创建仓库
 - `git init` / `git init dirName` 初始化仓库 / 指定 Git 仓库
+- `git stauts -s` 查看状态 -s 显示简述
 - `git add *.C` 添加暂存区或跟踪文件
 - `git commit -m '注解'` 提交到版本库
+- `git commit -am '注解'` 忽略添加暂存提交
 - `git clone [url]` 从现有仓库克隆
 
-
-
-
+### 分支操作 `[bName -> 分支名称]`
+- 创建分支 : `git branch bName`
+- 切换分支 : `git checkout bName`
+- 创建并切换分支 : `git checkout -b bName`
+- 合并分支 : `git merge`
+- 列出分支 : `git branch`
+- 删除分支 : `git branch -d bName`
 
 ### SSH 配置验证信息
 - ssh-keygen -t rsa -C 'yourEmail@xxx.com'
