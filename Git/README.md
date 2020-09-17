@@ -51,15 +51,38 @@
 - 列出分支 : `git branch`
 - 删除分支 : `git branch -d bName`
 
+## 查看提交历史
+#### 常用的命令
+- `git log` 查看历史提交记录
+  - **选项**
+    - `--oneline`: 查看历史记录简洁版
+    - `--graph`: 查看历史记录并显示分支信息
+    - `--reverse`: 反转顺序
+    - `--author=aName`: 查看指定用户的提交记录
+    - `--before={3.weeks.ago} --after={2010-04-18}` 查看某个区间的历史记录
+    - `--no-merges` 隐藏合并提交
+
+- `git blame <file>` 以列表形式查看指定文件的历史修改记录
+
+## git 标签
+- `git tag -a 标记信息` 给提交做特殊标记
+- `git tag -a 标记信息 id` 给某次已提交的版本做标记 
+
 ## SSH 配置验证信息
 - ssh-keygen -t rsa -C 'yourEmail@xxx.com'
 
 ## Git 操作远程库
-- 关联远程库: `git remote add origin gitResitoryPath`
-- 推送本地仓库内容: `git push -u origin master`
-- 查看远程库: `git remote -v`
-- 提取远程仓库
-  1. 从远程下载新分支: `git fetch origin` + `git merge origin/master`
-  2. 从远程提取数据并尝试合并到当前分支: `git pull`
-- 推送分支到远程: `git push orgin master`
-- 删除远程分支: `git remote rm [别名]`
+#### 生成 SSH Key
+1. `ssh-keygen -t rsa -C 'yourEmail` 生成 SSH Key
+2. 将 `HOME` 目录下 `.ssh/id_rsa.pub` 里面的 key 复制
+3. 将 key 粘贴到 github 账号上
+4. `ssh -T yourEmail` 验证 key 是否添加成功
+
+#### 关联远程仓库
+1. 在 github 上创建仓库
+2. 本地创建目录，初始化为仓库
+3. 关联远程仓库: `git remote add origin [url]`
+4. 查看当前远程库: `git remote -v`
+5. 提取远程仓库到本地某个分支: `git fetch origin` + `git merge origin/master`
+6. 推送消息到远程的某个分支: `git push -u origin master`
+7. 删除仓库: `git remote rm origin2`
