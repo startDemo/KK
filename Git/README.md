@@ -86,3 +86,5 @@
 5. 提取远程仓库到本地某个分支: `git fetch origin` + `git merge origin/master`
 6. 推送消息到远程的某个分支: `git push -u origin master`
 7. 删除仓库: `git remote rm origin2`
+
+GIT 无法跟踪空目录，只会跟踪有修改的文件.
