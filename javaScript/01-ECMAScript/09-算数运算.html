@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script>
+/* 
+1.加法运算的注意点
+  ==1 任意非数值作加法,先转数值后运算
+  ==2 任何数据加字符串,先转字符串后运算
+  ==3 任何数据加NaN,结果都是NaN
+
+2.减法、乘法运算的注意点
+  ==1 任意非数值作减法,先转数值后运算
+  ==2 任何数据减NaN,结果都是NaN
+
+3.取模运算注意点 m % n = 余数
+  ==1 若 m > n, 那么正常取余
+  ==2 若 m < n, 那么结果是 m
+  ==3 若 n = 0, 那么结果是 NaN
+  ==4 取余运算结果的正负性,取决于 m 而不是 n
+ */
+// 加法注意点
+console.log('abc' + '123');
+console.log('abc' + 123);
+console.log('abc' + true);
+console.log(true + 11);
+
+// 减法 乘法 注意点
+console.log('字符串 - 字符串','abc' - 'abc');
+console.log('字符串 - 字符串','123' - '123');
+console.log('字符串 - 数值', '123' - 123);
+console.log('字符串 - 数值', 'abc' - 123);
+console.log('布尔 - 字符串', true - '123');
+console.log('布尔 - 字符串', true - 'abc');
+console.log('布尔 - 数值',true - 123);
+
+console.log('str * num','123'*2);
+console.log('str * num','123abc12'*2);
+console.log('str * bool', '12' * true);
+console.log('str * bool', '12abc' * true);
+console.log('num * bool', 123 * true);
+</script>
+</body>
+</html>

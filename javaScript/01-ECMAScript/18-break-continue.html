@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>break-continue</title>
+</head>
+<body>
+<script>
+/* 
+break : 立即结束当前的 switch / while / for 语句 
+continue : 跳过当前循环，进入下一次循环
+ */
+/* var num = +prompt('输入一个数字') || "不是一个数字"
+switch(num){
+  default:
+    alert(num);
+  case 1:
+    console.log('No.1');
+    break;
+  case 2:
+    console.log('No.2');
+    break;
+  case 3:
+    console.log('No.3');
+    break;
+}
+
+num = 0
+while(1){
+  if(num == 5) break;
+  console.log('循环第' + num + '次');
+  num++
+}
+
+for(var i =0;i<10;i++){
+  if(i == 2) break;
+  console.log('循环第' + i + '次');
+} */
+
+var num = 0
+while (num<10){
+  console.log('while',num);
+  if(num%2==0){
+    num = 9;
+    continue;
+  }
+  num++
+}
+</script>
+</body>
+</html>

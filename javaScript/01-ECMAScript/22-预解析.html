@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+/* 
+1.预解析：浏览器在执行js代码的代码时候会分成两部分操作，预解析以及逐行执行，预解析操作不会执行代码，而是加工处理之后再执行，这个过程称为预解析
+
+2.预解析规则
+2.1 将变量声明和函数声明提升到当前作用域的最前面
+2.2 将剩余的代码按照书写顺序一次放到后面
+
+3.注意：
+3.1 通过 let 定义的函数不会被预解析
+3.2 函数也是会被预解析的，但函数赋值给变量时，函数不会被预解析，变量会被预解析
+3.3 预解析后的变量在定义之前使用，其值为 undefined
+ */
+console.log(num);
+ var num = 11;
+say();
+function say(){
+   console.log('say at run chrome');
+ }
+
+// test(); 
+console.log(func);
+// func();  // 通过函数赋值给变量后不会被预解析
+ var func = function test() {console.log('test is run');}
+ func();
+
+</script>  
+</body>
+</html>

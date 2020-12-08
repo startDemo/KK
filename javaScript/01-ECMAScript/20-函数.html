@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>函数</title>
+</head>
+<body>
+<script>
+/* 
+1.函数的定义
+function 函数名称(形参列表){
+  return 返回值
+}
+
+2.return 结束函数的执行，并返回其结果
+  没有 return 关键字的函数，默认返回 undefined
+  有 return 关键字的函数，返回 return 后的结果
+
+3.arguments 保存所有传递给函数的实参
+
+4.默认参数
+  // ES6之前使用 function func(a) a = a || '默认值';
+  // ES6之后使用 function func(a = val) 
+
+5.匿名函数（没有名字的函数）
+  // 匿名函数不能够之定义不使用
+  // 应用场景
+      ① 作为其他函数的额参数
+      ② 作为其他函数的返回值
+      ③ 作为一个立即执行的函数
+
+6.箭头函数 (ES6)
+  // 定义
+    let say = (形参) =>{ 函数体 }
+  // 注意点
+    一个形参时，可以省略括号 ()
+    函数体只有一行代码时，可以省略花括号 {}
+
+
+ */
+
+function index(x,y){
+  console.log(x, y);
+}
+
+function outer(func){
+  function wrap(x,y){
+    res = func(x,y);
+    return res
+  }
+  return wrap
+}
+var index = outer(index)
+index(1,2)
+
+
+// 函数可以赋值给一个变量
+function say(){
+  console.log('function say ...');
+}
+var s = say;
+s()
+
+// 函数可以作为另一个函数的形参
+function say(){
+  console.log('function say ...');
+}
+function run(func){
+  func()
+  console.log('func run break;');
+}
+run(say)
+
+// 函数可以作为另一个函数的返回值
+function test(){
+  var say = function(){
+    console.log('hell world');
+  }
+  return say;
+}
+let fn = test();
+fn();
+
+
+// 匿名函数
+// 匿名函数赋值给变量
+var say = function(){
+  console.log('匿名函数...');
+}
+
+// 匿名函数作为函数的实参
+function test1(func1){
+  func1();
+}
+test1(function(){
+  console.log('匿名函数作为实参');
+});
+
+// 匿名函数作为函数的返回值
+function test2(){
+  return function(){
+    console.log('hell world');
+  }
+}
+test2()();
+
+// 匿名函数作为一个立即执行的函数
+(function(x, y){
+  console.log(x, y);
+})(1, 2);
+
+</script>
+</body>
+</html>

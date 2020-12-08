@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Object 对象</title>
+</head>
+<body>
+<script>
+// 创建对象方式1
+var obj = new Object();
+obj.name = 'lnj';
+obj.age = 33;
+
+// 创建对象方式2
+var obj = {}
+obj.name = 'lnj';
+obj.age = 33;
+
+// 创建对象方式3
+var obj = {
+  name: 'lnj',
+  age: 33,
+  say: function(){
+    console.log('func say ...');
+  }
+}
+/* 
+1.函数和方法
+  函数：没有和其他的类绑定在一起的，称为函数。
+  方法：和其他的类绑定在一起的，称为方法。
+
+2.两者的区别
+  函数可以直接调用，方法需要通过对象来调用
+  函数内部的this指向window对象，对象内部方法中的this指向对象本身
+
+注：函数和方法内部都有一个this，谁调用函数或方法，那么this就是谁
+ */
+function outer(){
+  function say(){
+   console.log(this);
+ }
+ say();
+}
+outer();
+
+
+var obj = {
+  "name": "kuak",
+  "age": 18,
+  say: function(){
+    console.log(this);
+  }
+}
+obj.say();
+</script>
+</body>
+</html>

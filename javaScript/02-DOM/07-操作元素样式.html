@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+    .box2 {
+      width: 300px;
+      height: 300px;
+      background-color: skyblue;
+      border: 2px solid pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" style="width: 100px;"></div>
+</body>
+<script>
+  /* 
+  1.获取元素样式
+  2.设置元素样式
+   */
+
+// 1.获取元素样式
+// style 只能获取行内样式,带上了px单位
+var oDiv = document.querySelector("div");
+var oDivWidth = oDiv.style.width;
+console.log(oDivWidth);
+
+// getComputedStyle 有行内样式先获取，没有则再获取css样式，带单位px,不支持设置,
+var oDivStyle = getComputedStyle(oDiv);
+console.log(oDivStyle.height);
+
+// currentStyle 获取样式，行内css都能获取，不支持设置, ie9以下
+var style = oDiv.currentStyle || getComputedStyle(oDiv);
+console.log('current',style);
+
+
+// 2.设置元素样式
+// 方式1 通过类名设置样式
+oDiv.className = 'box2';
+
+// 方式2 通过行内样式设置
+oDiv.style.width = '10px';
+
+
+
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .grand-father{
+        width: 300px;
+        height: 300px;
+        margin-top: 100px;
+        margin-left: 100px;
+        background: deeppink;
+        overflow: hidden;
+    }
+    .father{
+        width: 200px;
+        height: 200px;
+        margin-top: 100px;
+        margin-left: 100px;
+        background: blue;
+        overflow: hidden;
+        position: relative;
+    }
+    .son{
+        width: 100px;
+        height: 100px;
+        margin-top: 100px;
+        margin-left: 100px;
+        background: red;
+    }
+</style>
+</head>
+<body>
+  <div class="grand-father">
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</div>
+<script>
+/* 
+1.offsetParent 最近定位父元素
+*/
+var oDiv = document.querySelector('.son');
+console.log(oDiv.offsetParent);
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<button id="btn">我是按钮</button>
+<a href="http://www.it666.com">知播渔教育</a>
+<script>
+/* 
+1. 事件对象: 系统自动创建的一个对象，当事件被触发时自动创建
+2.事件的注意点:
+  2.1 高级浏览器中，事件对象会自动传入回调函数中
+  2.2 低级浏览器中，事件对象不会自动传入回调函数中，需要通过window.event获取事件对象
+ */
+var oA = document.querySelector('a');
+oA.onclick = function(event){
+  event = event || window.event;
+  console.log(event);
+  return false;  // 阻止默认行为
+
+  // 阻止默认行为
+  // event.preventDefault();  // 高级浏览器
+  // event.returnValue = false;  // 低级浏览器
+};
+
+</script>
+</body>
+</html>

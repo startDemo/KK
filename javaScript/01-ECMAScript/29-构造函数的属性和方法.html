@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>构造函数的属性和方法</title>
+</head>
+<body>
+<script>
+// 1 给对象不存在的属性赋值时，不会去原型链中查找
+
+// 2 默认情况下对象的属性和方法都是公开的，只要拿到对象就可以操作对象的属性和方法
+
+// 3 私有属性和方法: 构造函数也是函数，通过let和var定义的属性或定义的函数外界是无法访问到的，所以它们就是私有的属性和方法
+
+function Person(){
+  this.name = "lnj";
+  let age = 18;
+  let xx = 11;
+  this.setAge = function(myAge){
+    if(myAge >0 ){
+      age = myAge;
+    }
+  }
+  this.getAge = function(){
+    return age
+  }
+}
+Person.prototype = {
+  constructor: Person,
+  sex: false,
+}
+var p = new Person();
+p.sex = true;
+console.log(p.sex);
+console.log(p.__proto__.sex);
+
+// 构造函数的属性和方法默认是公开的
+console.log(p.name);
+
+// 构造函数中定义的无法通过对象获取
+console.log(p.xx);
+console.log(Person.xx);
+
+
+// 操作私有属性
+p.setAge(34);
+console.log(p.getAge());
+
+
+/* 
+属性和方法的分类
+1.实例属性 / 实例方法
+  通过实例对象访问的属性是实例属性，通过实例对象调用的方法是实例方法
+2.静态属性和静态方法
+  通过构造函数访问的属性是静态属性，通过构造函数调用的方法是静态方法
+ */
+</script>
+</body>
+</html>

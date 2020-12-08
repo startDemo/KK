@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>工厂函数</title>
+</head>
+<body>
+<script>
+/*
+工厂函数：专门用于创建对象的函数，称为工厂函数。
+*/
+function createPerson(name,age){
+  var obj = new Object();
+  obj.name = name;
+  obj.age = age;
+  obj.say = function(){
+    console.log('hello world');
+  }
+  return obj;
+}
+var obj1 = createPerson('kk',18);
+var obj2 = createPerson('Egon',19);
+console.log(obj1);
+console.log(obj2);
+</script>
+</body>
+</html>

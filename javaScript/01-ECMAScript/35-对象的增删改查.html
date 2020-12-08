@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+class Person{
+  constructor(name,age){
+    this.name = name;
+    this.age = age;
+    this.say = function(){
+      console.log('say');
+    }
+  }
+}
+let p = new Person('Kuak', 18);
+//  给对象添加属性和方法
+p['height'] = 170;
+p['painting'] = function(){
+  console.log('Kuak can paintiong');
+}
+console.log(p);
+
+// 删除对象的属性和方法
+delete p.name;
+delete p['name'];
+delete p['painting'];
+console.log(p);
+
+// 修改对象的属性和方法
+p["height"] = 180;
+console.log(p);
+
+// 查看对象的属性和方法
+console.log(p.height);
+console.log(p['height']);
+
+
+// 遍历对象：
+for (let i in p){
+  console.log(i,p[i]);
+}
+
+// 对象的解构赋值
+// 解构赋值的名称必须和对象的属性或方法保持一致
+let {height, age} = p;
+console.log("height",height, "age", age);
+
+let myObj = {"name": "Kuak", "age": 19};
+function mySay({name, age}){
+  console.log(name, age);
+}
+mySay(myObj);
+
+
+</script>  
+</body>
+</html>

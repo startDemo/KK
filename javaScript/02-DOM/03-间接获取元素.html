@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <h1>1</h1>
+    <h2>2</h2>
+    <p class="item">3</p>
+    <p>4</p>
+    <span>5</span>
+</div>
+<script>
+/* 
+1. 获取指定节点中的第一个子节点、子元素
+2. 获取指定节点中的最后一个子节点、子元素
+3. 通过子元素获取父元素、父节点
+4. 获取相邻上一个节点、元素
+5. 获取相邻下一个节点、元素
+ */
+
+// 获取指定节点中的第一个子节点（换行也算节点）、子元素
+var oDiv = document.querySelector('div');
+var oDivChild = oDiv.firstChild;
+var oDivChildEle = oDiv.firstElementChild;
+console.log('child =>',oDivChild);
+console.log('child ele =>',oDivChildEle);
+
+// 获取指定节点中的最后一个子节点、子元素
+var div = document.querySelector('div');
+var divLastChild = div.lastChild;
+var divLastEleChild = div.lastElementChild;
+console.log('last child =>', divLastChild);
+console.log('last ele child =>', divLastEleChild);
+
+// 通过子元素获取父元素、父节点
+var item = document.querySelector('.item');
+var parEle = item.parentNode;
+var parEle2 = item.parentElement;
+var parEle3 = item.parentNode || item.parentElement;
+console.log('parent node =>', parEle);
+console.log('parent elements =>', parEle2);
+console.log('parent ele or node =>', parEle3);
+
+// 获取相邻上一个节点、元素
+var itemP = document.querySelector('.item');
+var preSib = itemP.previousSibling;
+var preEleSib = itemP.previousElementSibling;
+console.log('previous sibling =>', preSib);
+console.log('previous element sibling =>', preEleSib);
+
+// 获取相邻下一个节点、元素
+var itemP = document.querySelector('.item');
+var nextSib = itemP.nextSibling;
+var nextEleSib = itemP.nextElementSibling;
+console.log('next sibling =>', nextSib);
+console.log('next element sibling =>', nextEleSib);
+</script>
+</body>
+</html>

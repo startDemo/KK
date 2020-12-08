@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .box1 {width: 200px;height: 200px;padding: 10px;border: 5px solid pink;margin: 10px;}
+  </style>
+</head>
+<body>
+<div class="box1">box1</div>
+<div class="box2" style="width: 100px;height: 100px;padding: 10px;border: 5px solid #ccc;margin:10px;">box2box2box2box2box2box2box2box2box2box2box2box2box2box2box2box2box2box2</div>
+<script>
+/* 
+1.通过 getComputedStyle 方法获取宽高 获取内容宽度，不能设置，高级浏览器支持
+2.通过 currentStyle 属性获取宽高 内容宽度，不能设置， 低级浏览器支持
+3.通过 ele.style.xx 获取宽高, 获取的是行内内容宽度，支持设置
+
+4.offsetWidth / offsetHeight,获取宽度 = 边框 + 内边 + 内容， 不能设置
+5.clientWidth / clientHeight = 内容 + 内边
+6.scrollWidth / scrollHeight = 超出内容 + 内边 
+ */
+
+var box1 = document.querySelector('.box1');
+var box2 = document.querySelector('.box2');
+
+// 通过 style 对象获取宽度，获取的是内容宽度
+console.log('------ 通过 style 获取元素宽度 ------');
+var w1 = box1.style.width;
+var w2 = box2.style.width;
+console.log('box1的宽度 ==>',w1);  // 获取不到css设置的样式
+console.log('box2的宽度 ==>',w2);
+
+// 通过 getComputedStyle 方法获取宽度，获取的是内容宽度
+console.log('------ 通过 getComputedStyle 获取元素宽度 ------');
+var w1 = getComputedStyle(box1).width;
+var w2 = getComputedStyle(box2).width;  // 行内及css设置的宽度都可以获取
+console.log('box1的宽度 ==>',w1);
+console.log('box2的宽度 ==>',w2);
+
+
+// 通过 currentStyle 获取元素宽高,低版本浏览器识别，和 getComputedStyle 一样
+console.log('------ 通过 currentStyle 获取元素宽度 ------');
+/* var w1 = box1.currentStyle.width;
+var w2 = box2.currentStyle.width;
+console.log('box1的宽度 ==>',w1);
+console.log('box2的宽度 ==>',w2); */
+
+
+
+// 通过 offsetWidth 获取元素宽度，获取宽度 = 内容 + 内边 + 边框
+console.log('------ 推荐通过 offsetWidth 获取元素宽度 ------');
+var w1 = box1.offsetWidth;
+var w2 = box2.offsetWidth;
+console.log('box1的宽度 ==>',w1);
+console.log('box2的宽度 ==>',w2);
+
+// 通过 clientWidth 获取元素宽度，获取宽度 = 内容 + 内边
+console.log('------ 通过 clientWidth 获取元素宽度 ------');
+var w1 = box1.clientWidth;
+var w2 = box2.clientWidth;
+console.log('box1的宽度 ==>',w1);
+console.log('box2的宽度 ==>',w2);
+
+// 通过 scrollWidth 获取元素宽度，获取宽度 = 超出内容 + 内边
+console.log('------ 通过 scrollWidth 获取元素宽度 ------');
+var w1 = box1.scrollWidth;
+var w2 = box2.scrollWidth;
+console.log('box1的宽度 ==>',w1);
+console.log('box2的宽度 ==>',w2);
+
+</script>
+</body>
+</html>

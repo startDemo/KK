@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+// 1.this: 谁调用当前函数或方法，那么this就是谁
+/* 
+2.bind、call、apply 三个方法的作用
+bind: 修改函数或方法中的this指向，并返回一个修改之后的新函数给我们
+call: 修改函数或方法中的this指向，并立即调用修改之后的函数
+apply: 修改函数或方法中的this指向，并立即调用修改之后的函数
+
+注意：bind、call、apply 除了可以修改this以外，还可以传递参数，bind和call的参数写在this的后面，apply的参数写在this的后面并以数组的形式传入
+*/
+let obj = {
+  name: 'Egon',
+  age : 18,
+}
+
+
+// 1.修改函数中的this指向
+function test(a,b){
+  console.log(a,b);
+  console.log(this);
+}
+test();
+console.log('------------------');
+// bind 修改函数中 this 的指向
+let myBind = test.bind(obj, 10, 100)
+myBind();
+console.log(myBind);
+console.log('------------------');
+
+// call 修改函数中 this 的指向
+let myCall = test.call(obj, 666, 999);
+console.log(myCall);
+
+console.log('------------------');
+
+// apply 修改函数中 this 的指向
+let myApply = test.apply(obj,['xxx', 'yyy']);
+console.log(myApply);
+</script>
+</body>
+</html>

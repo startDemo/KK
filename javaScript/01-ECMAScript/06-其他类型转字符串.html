@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script>
+  /* 
+一.将其他数据类型转为字符串类型如下四种情况
+1.将Number类型转换为字符串类型
+2.将Boolean类型转换为字符串类型
+3.将undefined类型转换为字符串类型
+4.将null类型转换为字符串类型
+
+二.其他类型转换为字符串的几种方式
+1.变量名.toString()
+  ①.适用于 Number 和 Boolean
+  ②.常量不能直接调用
+  ③.就是将变量的数据拷贝一份,再转换为字符串之后返回,不影响原数据
+2.String(常量/变量)
+  ①.根据传入数据产生一个字符串
+  ②.传入的数据可以是变量或常量
+  ③.产生新的值,不会修改原数据
+3.其他类型通过 + 运算符转换为字符串 (变量,常量 + " ")
+  ps: 本质就是通过 String() 实现的
+  */
+// 1.将Number类型转换为字符串类型
+// 方式 1
+var num0 = 233;
+res = num0.toString()  // 变量形式转
+console.log('num0原值=>', num0,'num0原值类型=>',typeof(num0));
+console.log('num0转值=>',res,'num0转值类型=>',typeof(res));
+// 字面常量形式转
+// 123.toString()  Invalid or unexpected token
+
+// 方式 2
+// 变量形式转
+var num1 = 233
+console.log('num1=',String(num1),'type(string(num1))=',typeof(String(num1)));
+// 常量形式转
+console.log('String(123) ==> ',String(123));
+console.log('typeof(String(123)) ==>',typeof(String(123)));
+
+// 方式 3
+console.log('var ==>',typeof(num1+''));
+console.log('方式3==>',typeof(123+''));
+
+
+// 2.将Boolean类型转换为字符串类型
+// 方式 1 
+var bl = true
+var res = bl.toString()
+console.log('变量形式Boolean ==> str',res,typeof(res));
+var res = true.toString()
+console.log('true>>str:',res);  // 布尔常量可以使用toString()
+
+// 方式 2 
+b = false
+console.log(typeof(String(b)))
+console.log(typeof(String(false)));
+
+// 方式 3
+console.log(true + '');
+
+
+// 3.将undefined类型转换为字符串类型
+var un;
+// res1 = un.toString()  //  Cannot read property 'toString' of undefined
+// res2 = undefined.toString()  // Cannot read property 'toString' of undefined
+
+res3 = String(un)
+res4 = String(undefined)
+// console.log(res1,res2);
+console.log(res3,res4);
+
+console.log(un + '');
+console.log(undefined + '');
+
+
+// 4.将null类型转换为字符串类型
+var nul = null;
+// console.log(nul.toString());  // Cannot read property 'toString' of null
+// console.log(null.toString());  // Cannot read property 'toString' of null
+
+console.log(String(nul));
+console.log(String(null));
+
+console.log(nul + '');
+console.log(null + '');
+</script>
+</body>
+</html>

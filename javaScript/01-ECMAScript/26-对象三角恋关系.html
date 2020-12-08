@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>对象三角恋关系</title>
+</head>
+<body>
+<script>
+/* 
+1.对象三角恋关系
+  ① 每个 "构造函数" 默认存放一个 prototype 属性，保存着一个原型对象
+  ② 每个 "原型对象" 默认存放一个 constructor 属性，保存着指向它的构造函数
+  ③ 每个通过构造函数创建的 "实例对象" 默认存放一个__proto__属性，保存着创建他的构造函数的原型对象
+ */
+/*  
+function Person(name,age){
+  this.name =name;
+  this.age = age;
+  this.say = function(){
+    console.log("say..");
+  }
+ }
+ var obj = new Person('Kuak',18);
+ console.log(Person.prototype);
+ console.log(Person.prototype.constructor);
+ console.log(obj.__proto__); */
+
+ /* 
+2.Function 函数
+  ① js中所有函数都由Function函数创建，即函数都是Function的实例，所以Person也有__proto__属性，它指向Function的原型对象
+  */
+function Person(name,age){
+  this.name =name;
+  this.age = age;
+  this.say = function(){
+    console.log("say..");
+  }
+ }
+console.log();
+</script>
+</body>
+</html>

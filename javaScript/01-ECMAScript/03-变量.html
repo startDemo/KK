@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <script>
+/* 
+  1.什么是变量?
+    变量表示一个可以被修改的数据
+    现实中超市的储物格就是变量,在不同时间段,储物格中存储的数据也不一样
+
+  2.如何定义一个变量
+    通过关键字 var 定义变量生成储物格,告诉浏览器需要一块内存空间
+    var 变量名称
+
+  3.如何使用变量
+    就是往储物格里存取物品,即在内存空间中存取数据
+    ①.如何存数据(将赋值号右边的数据存放到赋值号左边变量申请的内存空间中)
+      变量名 = 数据值  =>  name = '小明'
+
+    ②.如何取数据(通过变量名找到申请的内存空间,把存放的数据取出来)
+    num  =>  console.log(num)
+
+    ③.如何修改变量存储的数据
+      修改变量存储的数据就是重新赋值(即重新申请空间)
+      num = 666  =>  console.log(num)
+*/
+
+/* 
+  一.变量的定义
+  1.定义变量的几种格式
+      ①.var num;
+      ②.var num0,num1,num2;
+
+  二.变量的初始化
+  1.变量初始化
+      变量初始化,变量第一次被赋值
+      未初始化时,变量存放着 undefined
+
+  2.初始化变量的形式
+      ①.先定义,后初始化
+        var num;
+        num = 233;
+
+      ②.定义时直接初始化
+        var num = 233;
+
+      ③.多变量定义时链式初始化
+        var num = val = 233;
+        var num;
+        var val;
+        num = val = 233;
+
+      ④.多变量定义时分别初始化
+        var num=123,val=233;
+
+  三.变量的赋值
+  1.有关键字var时,就是在重新定义一个变量
+  2.没有关键字var时,就是在修改变量存放的数据
+  var name = '定义'
+  name = '赋值'
+*/
+
+/* 
+变量的注意点
+  1.js 变量之间可以互相赋值
+  2.js 对于同名变量,后定义的会覆盖先定义的
+  3.js 中对于变量和函数,可以先使用后定义,js会在解析代码之前进行先预解析,会将当前代码中所有变量和函数的定义放到代码的最前面
+  4.没有关键字
+*/
+
+/* 
+ES6 中的变量
+  let num;  定义
+  num = 111  初始化
+  console.log(num)  取数据
+  num = 233  修改数据
+
+先使用后定义会报错
+  console.log(n)
+  let n
+*/
+
+// 变量的注意点
+// ps 1
+var num = 233;
+var num1 = num
+console.log(num1);
+
+// ps 2
+var name = 'javascript'
+var name = 'json'
+console.log(name);
+
+// ps 3
+console.log(num2);
+say();
+var num2 = 10;
+function say(){
+  console.log('函数执行中...');
+}
+
+
+// se6 变量
+let num233;
+console.log(num233);
+num233 = 233;
+console.log(num233)
+num233 = 368;
+console.log(num233);
+
+console.log(val);  // val is not defined
+let val = 222;
+  </script>
+</body>
+</html>

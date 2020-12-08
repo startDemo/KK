@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+// 原型链
+// 1.各个对象中__proto__属性组成的链条，我们称其为原型链
+// 2.对象在查找值时，会顺着原型链查找，直到找到为止，直到Object的原型对象中还未找到就会报错
+function Person(name,age){
+  this.name = name;
+  this.age = age;
+  this.currentType = '构造函数中的type';
+  this.say = function(){
+    console.log('say ...');
+  }
+}
+Person.prototype = {
+  constructor: Person,
+  currentType: '原型对象中个的type',
+  sex: false,
+  run: function(){
+    console.log('原型中的run方法');
+  },
+};
+var obj1 = new Person('lnj', 34);
+console.log(obj1.currentType);
+
+obj1.run();
+// 原型链的查找规则
+// 1.在查找时，如果查找的属性实例对象本身不存在时，就会到原型对象中查找
+// 2.对象在查找属性或方法时，对象本身存在即直接找到，不会再去原型对象中查找
+
+
+
+// 属性注意点：当给一个对象本身不存在的属性赋值时，不会到原型对象中查找
+obj1.sex = 111111111;
+console.log(obj1.__proto__.sex);
+
+
+</script>
+</body>
+</html>

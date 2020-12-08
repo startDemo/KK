@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+/* 
+1.switch 格式:
+switch(表达式){
+  case 表达式A:
+    语句A;
+    breack;
+  case 表达式B:
+    语句B;
+    breack;
+  default:
+    语句A;
+    breack;
+}
+
+switch 特点
+  将 switch 后的表达式 和 case后的表达式做比较，如果先等则执行 case 中的语句，如果前面所有 case 不匹配，就会执行 default 后的语句
+*/
+var num = Number(prompt("请输入一个数字:")) || 0;
+switch(num){
+  case 1:
+    console.log("星期1");
+    break;
+  case 2:
+    console.log("星期2");
+    break;
+  case 3:
+    console.log("星期3");
+    break;
+  default:
+    console.log("other");
+    break;
+}
+
+/* 
+switch 注意点
+1.case 判断的是 ===, 而不是 ==
+2.switch 括号中 和 case 后可以是常量还可以是表达式
+3.breack 立即结束整个 switch 语句，其他的 case 语句不会执行
+4.default 可以在 switch 的其他位置，default也可以省略
+*/
+</script>
+</body>
+</html>

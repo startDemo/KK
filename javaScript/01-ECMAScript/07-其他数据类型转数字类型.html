@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script>
+/* 
+将其他类型转换为字符串
+1.Number(常量/变量)
+  ①.String ==> Number
+    纯数字字符串         ==> 正常转换
+    空字符串(空格字符串)  ==> 转换为 0
+    不是纯数字字符串      ==> 转换为 NaN
+
+  ②.Boolean ==> Number
+    true   ==> 1
+    false  ==> 0
+
+  ③.undefined ==> Number
+    undefined ==> NaN
+
+  ④.null ==> Number
+    null  ==> 0
+
+2.+ / -
+  ①.会改变数值的正负性
+  ②.本质就是调用了 Number()
+
+3.parseInt(需要转换的字符串) / parseFloat(需要转换的字符串)
+  1.会将传入的数据作为字符串处理
+  2.从左至右提取字符串中的数字,遇到非数字立即停止,停止时没有提取到数值,则返回 NaN
+*/
+
+// >>>>>>> Number
+// 1.String ==> Number
+// 2.Boolean ==> Number
+// 3.undefined ==> NaN
+// 4.null ==> 0
+console.log('Number String => Number', Number('123'));
+console.log('String => Number', Number('123abc'));
+console.log('Boolean => Number', true);
+console.log('undefined => Number', undefined);
+console.log('null => Number', null);
+
+
+console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+// >>>>>>> + -
+// 1.String ==> Number
+// 2.Boolean ==> Number
+// 3.undefined ==> NaN
+// 4.null ==> 0
+console.log('Number String => Number', +'123');
+console.log(typeof( +'123'));
+console.log('String => Number', +'123abc');
+console.log('Boolean => Number', +true);
+console.log('undefined => Number', +undefined);
+console.log('null => Number', +null);
+
+
+console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+// >>>>>>> parseInt / parseFloat
+// 1.String ==> Number
+// 2.Boolean ==> Number
+// 3.undefined ==> NaN
+// 4.null ==> 0
+console.log('string',parseInt('123'));
+console.log('string',parseInt('123abc'));
+console.log('string',parseInt('abc'));
+console.log('bool',parseInt(true));
+console.log('undefined',parseInt(undefined));
+console.log('null',parseInt(null));
+
+</script>
+</body>
+</html>

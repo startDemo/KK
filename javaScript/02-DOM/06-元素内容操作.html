@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <div>
+    我是div
+    <h1>我是标题</h1>
+    <p>我是段落</p>
+</div>
+  <script>
+  /* 
+  1.获取元素内容
+  2.设置元素内容
+  */
+// 1.获取元素内容
+// innerHTML 包含标签
+// innerText / textContent(去除内容两端空格) 不包含标签
+var oDiv = document.querySelector('div');
+console.log(oDiv.innerHTML);
+console.log(oDiv.textContent);
+console.log(oDiv.innerText);
+
+
+// 2.设置元素内容， innerHtml(标签会转换) / innerText / textContent 会覆盖原有内容
+oDiv.innerHTML = "<h2>通过innerHtml设置div的内容</h2>";
+oDiv.innerText = "<h2>通过innerText设置div的内容</h2>";
+oDiv.textContent = "<h2>通过textContent设置div的内容</h2>";
+  </script>
+</body>
+</html>

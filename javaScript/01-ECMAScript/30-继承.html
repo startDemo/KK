@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>30-继承</title>
+</head>
+<body>
+<script>
+// 继承方式 1
+/*
+function Person(name,age){
+  this.name = name;
+  this.age = age;
+  this.say = function(){
+    console.log(this.name, this.age);
+  }
+}
+function Student(myScore){
+  this.score = myScore;
+  this.study = function(){
+    console.log("day day up...");
+  }
+}
+Student.prototype = new Person("Egon", 18);
+Student.prototype.constructor = Student;
+
+var s = new Student(99);
+console.log(s.name);
+s.name = 'Kuan';
+console.log(s.name);
+console.log(s.__proto__.name);
+*/
+/*
+继承方式一的弊端
+1. 修改了Student的原型对象
+2. 修改了父类方法中的this指向
+ */
+
+
+// 继承方式 2
+/*
+function Person(name, age){
+  this.name = name;
+  this.age = age;
+  this.height = 180;
+  this.say = function(){
+    console.log(this.name, this.age);
+  }
+}
+Person.prototype.weight = 55;
+function Student(sName,sAge,score){
+  Person.call(this,sName,sAge)
+  this.score = score;
+  this.study = function () {
+    console.log("day day up");
+  }
+}
+
+var stu = new Student("ww", 19, 99)
+console.log(stu.score);
+stu.say();
+stu.study();
+// 无法访问到父类原型对象中的方法
+console.log(stu.weight); 
+*/
+
+
+
+// 继承方式三
+/* 
+function Person(name, age){
+  this.name = name;
+  this.age = age;
+  this.height = 180;
+  this.say = function(){
+    console.log(this.name, this.age);
+  }
+}
+function Student(sName,sAge,score){
+  Person.call(this,sName,sAge)
+  this.score = score;
+  this.study = function () {
+    console.log("day day up");
+  }
+}
+Student.prototype = Person.prototype;
+Student.prototype.constructor = Student;
+console.log(Person.prototype.constructor);
+var s = new Student('Kuak', 19, 99);
+console.log(s.height);
+ */
+ /* 
+继承方式三的弊端
+1.修改了Person原型对象的constructor属性
+2.由于Person和Strudent的原型指向同一个了，所以给一个添加属性或方法，另一个也会跟着添加
+*/
+
+
+// 继承方式四
+function Person(name, age){
+  this.name = name;
+  this.age = age;
+  this.height = 180;
+  this.say = function(){
+    console.log(this.name, this.age);
+  }
+}
+function Student(sName,sAge,score){
+  Person.call(this,sName,sAge)
+  this.score = score;
+  this.study = function () {
+    console.log("day day up");
+  }
+}
+Student.prototype = new Person();
+Student.prototype.constructor = Student;
+Person.prototype.run = function(){
+  console.log('run in Person');
+};
+var s = new Student('Kuak',19,99);
+s.run();
+console.log(s.name);
+console.log(s.__proto__.name);
+</script>
+</body>
+</html>

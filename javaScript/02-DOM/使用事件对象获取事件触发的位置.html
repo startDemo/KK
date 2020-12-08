@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background: red;
+      margin-left: 100px;
+      margin-top: 800px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <script>
+    /* 
+    offsetX / offsetY: 获取事件触发位置，相对于自身左上角为原点
+    clientX / clientY: 获取事件触发的位置，相对于浏览器可视区的左上角为原点
+    pageX / pageY: 获取事件触发位置，相对于网页文档的左上角为原点
+    screenX / screenY: 获取事件触发位置，相对于屏幕左上角为原点
+     */
+    var oDiv = document.getElementById('box');
+    oDiv.onclick = function (event) {
+      event = event || window.event;
+      console.log('>>>>>> offsetX / offsetY');
+      console.log(event.offsetX, event.offsetY);
+
+      console.log(">>>>>> clientX / clientY");
+      console.log(event.clientX, event.clientY);
+
+      console.log(">>>>>> pageX / pageY");
+      console.log(event.pageX, event.pageY);
+
+      console.log(">>>>>> screenX / screenY");
+      console.log(event.screenX, event.screenY);
+    }
+  </script>
+</body>
+
+</html>

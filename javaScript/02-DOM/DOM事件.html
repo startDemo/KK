@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <button>click me !</button>
+  <div class="box"></div>
+  <p>
+    焦点事件: <input type="text">
+  </p>
+  <script>
+    function addEvent(ele, name, fn) {
+      if (ele.attachEvent) {
+        ele.attachEvent('on' + name, fn);
+      } else {
+        ele.addEventListener(name, fn);
+      }
+    }
+/*
+    1.点击事件 click
+    2.移入移出移动事件 mouseover / mouseout / mouseleave
+    3.焦点事件 focus / blur / change 
+*/
+// 1.点击事件 click
+var btn = document.querySelector("button");
+addEvent(btn, "click", function(){
+  confirm('click event ~')
+});
+
+// 2.移入移出移动事件 mouseover / mouseout （不会触发父元素的事件） / mouseleave
+// mouseenter / mouseout 会触发父元素的事件
+var box = document.querySelector('.box');
+addEvent(box, 'mouseover', function(){
+  console.log("移入入入入事件~");
+});
+addEvent(box, 'mouseleave', function(){
+  console.log("移出出出出事件~");
+});
+addEvent(box, 'mousemove', function(){
+  console.log("移动动动动事件");
+});
+
+// 3.焦点事件 focus / blur / change
+var ipt = document.querySelector("input");
+addEvent(ipt, 'focus', function(){
+  console.log("得得得得得得到了焦点");
+});
+addEvent(ipt, 'blur', function(){
+  console.log("失失失失失失去了焦点");
+});
+/* addEvent(ipt, 'change', function(){// 修改了数据之后，失去焦点时才会触发
+  console.log(this.value);
+}); */
+addEvent(ipt, 'propertychange',function(){
+  console.log(this.value);
+});
+  </script>
+</body>
+
+</html>

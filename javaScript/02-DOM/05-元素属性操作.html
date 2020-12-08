@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9K8P2VDg6_pFe8VGnXOKARxCLHbmPkpJs8g&usqp=CAU" alt="我是alt222" title="我是title" nj="666">
+<script>
+  /* 
+  1.获取元素属性
+  2.修改元素属性
+  3.新增元素属性
+  4.删除元素属性
+   */
+// 1.获取元素属性
+var oImg = document.querySelector('img');
+var imgAlt = oImg.getAttribute('alt');
+console.log('img alt ==>', imgAlt);
+
+// 2.修改元素属性
+oImg.setAttribute('alt', '我是饥荒海难版');
+
+// 3.新增元素属性
+oImg.setAttribute('data-index', 666);
+
+// 4.删除元素属性
+oImg.removeAttribute('title')
+</script>  
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>构造函数</title>
+</head>
+<body>
+<script>
+/* 
+1.构造函数 => 构造函数和工厂函数一样，都是用于创建对象的，构造函数本质就是工厂函数的简写
+
+  1.1 构造函数与工厂函数的区别
+    - 构造函数的函数名称首字母必须大写
+    - 构造函数只能通过 new 来调用
+
+  1.2 执行 new Person() 构造函数时，系统默认行为
+    ① 会在构造函数中自动创建一个对象 new Object
+    ② 会自动将刚才创建的对象赋值给 this
+    ③ 会在构造函数的最后自动添加 return this
+*/
+/* function Person(name,age){
+  //系统会自动添加三行代码
+  //1 let obj = new Object();
+  //2 let this = obj;
+  this.name = name;
+  this.age = age;
+  this.say= function(){
+    console.log("hello world");
+  }
+  //3 return this;
+} 
+*/
+
+
+
+// 2.构造函数的性能问题
+    // 每次实例化对象，构造函数中的属性或者方法都会放入不同内存空间，但有些对象的方法实现功能是相同的，这就造成了内存空间被浪费了，导致性能问题。
+/* 
+function Person(name,age){
+  this.name = name;
+  this.age = age;
+  this.say = function(){
+    console.log('say ...');
+  }
+}
+var obj1 = new Person('kuak',18);
+var obj2 = new Person('Egon',19);
+console.log(obj1.say === obj2.say); 
+*/
+
+
+
+// 3.优化新能问题
+
+/* 
+3.1 解决问题方式1
+  弊端  
+    1.阅读性降低，很难看出 say 是和构造函数绑定在一起的
+    2.污染了全局命名空间，作为函数内部的方法其作用域应该放在局部中 
+*/
+/* 
+function say(){
+  console.log('say ...');
+}
+function Person(name,age){
+  this.name = name;
+  this.age = age;
+  this.say = say;
+}
+var obj1 = new Person('Egon', 20);
+var obj2 = new Person('kuak',18);
+console.log(obj1.say === obj2.say); 
+*/
+
+// 3.2 解决方式2 可以解决全局作用域被污染问题，但阅读性更差了。
+/* 
+var funcObj = {
+  mysay: function(){
+    console.log('mysay ...');
+  }
+}
+function Person(name,age){
+  this.name = name;
+  this.age = age;
+  this.say = funcObj.mysay;
+}
+var o1 = new Person('Egon', 20);
+var o2 = new Person('kuak',19);
+console.log(o1.say === o2.say); 
+*/
+
+// 3.3 解决方式3 通过构造函数的prototype属性处理
+/* function Person(name, age){
+  this.name = name;
+  this.age = age;
+  // this.say = function(){}
+}
+Person.prototype = {
+  "say": function(){
+    console.log('say in prototype...');
+  },
+}
+var obj1 = new Person("Kuak", 18);
+var obj2 = new Person("Egon", 18);
+console.log(obj1.say === obj2.say); */
+/* 
+
+prototype 对象
+  1.存储在 prototype 中的属性或方法，可以被对应构造函数创建的所有对象共享
+  2.prototype 和构造函数存在同名方法或属性，对象访问时访问到的是构造函数中的数据 
+
+prototype 应用场景：用于存储所有对象都相同的属性或方法
+*/
+
+</script>
+</body>
+</html>

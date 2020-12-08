@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .father{
+        width: 200px;
+        height: 200px;
+        margin-top: 100px;
+        margin-left: 100px;
+        background: blue;
+        overflow: hidden;
+        position: relative;
+    }
+    .son{
+      border: 10px solid #000;
+        width: 100px;
+        height: 100px;
+        margin-top: 100px;
+        margin-left: 100px;
+        background: red;
+    }
+    .box3{
+            width: 100px;
+            height: 100px;
+            padding: 50px;
+            border: 50px solid #000;
+            background: red;
+            background-clip: content-box;
+            color: deepskyblue;
+            overflow: auto;
+        }
+</style>
+</head>
+<body>
+<div class="father">
+  <div class="son"></div>
+</div>
+<div class="box3">
+  我是内容<br/>
+  我是内容<br/>
+  我是内容<br/>
+  我是内容<br/>
+  我是内容<br/>
+  我是内容<br/>
+  我是内容<br/>
+  我是内容<br/>
+  我是内容<br/>
+  我是内容<br/>
+  我是内容<br/>
+  我是内容<br/>
+  我是内容<br/>
+  我是内容<br/>
+</div>
+<script>
+/* 
+1. offsetLeft / offsetTop : 获取相对于最近定位父元素的偏移位置
+2. clientLeft / clientTop : 获取元素边框的宽度
+3. scrollLeft / scrollTop : 超出元素内容区的距离
+ */
+var divS = document.querySelector('.son');
+console.log(">>>>>> offsetLeft");
+console.log(divS.offsetLeft);
+console.log(divS.offsetTop);
+
+
+console.log(">>>>>> clientLeft");
+console.log(divS.clientLeft);
+console.log(divS.clientTop);
+
+var box3 = document.querySelector('.box3');
+box3.onscroll = function(){
+  console.log(box3.scrollTop);
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+// 多态：同一件事情发生在不同对象上会产生不同的结果
+function Cat(){
+  this.eat = function(){
+    console.log('cat eat xxx');
+  }
+}
+function Dog(){
+  this.eat = function(){
+    console.log('Dog eat xxx');
+  }
+}
+
+function feed(animal){
+  animal.eat();
+}
+let dog = new Dog();
+feed(dog);
+
+let cat = new Cat();
+feed(cat);
+
+
+
+</script>  
+</body>
+</html>

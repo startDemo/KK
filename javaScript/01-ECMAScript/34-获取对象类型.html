@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+// 1. typeof 检测数据的类型
+/* // 检测对象的类型
+let obj = new Object();
+console.log(typeof obj);
+
+// 检测数组的类型
+let arr = new Array();
+console.log(typeof arr);
+
+// 检测构造函数的类型
+function Person(name,age){
+  this.name = name;
+  this.age =age;
+  this.say = function(){
+    console.log(this.name, this.age);
+  }
+}
+let p = new Person('Kuak', 19);
+console.log(typeof p);
+console.log(p.constructor.name);
+// 对象、数组、构造函数都是对象类型 */
+
+
+// 2. instanceof 判断 对象 是否是指定构造函数的 实例
+// 检测 es6 对象
+/* class Person2{
+  constructor(pName, age){
+    this.name = pName;
+    this.age = age;
+  }
+}
+class Student extends Person2{
+  constructor(sName, age, score){
+    super(sName,age);
+    this.score = score;
+  }
+}
+console.log(Student instanceof Person2);
+let s = new Student('Kuak', 18, 100);
+console.log(s instanceof Person2);
+console.log(s instanceof Student);
+
+// 检测 es6 之前
+function Animarl(aName){
+  this.aName = aName;
+}
+function Cat(cName){
+  Animarl.call(this, cName);
+}
+Cat.prototype = new Animarl();
+Cat.prototype.constructor = Cat;
+let cat = new Cat('花花');
+console.log(cat.aName );
+console.log(cat instanceof Animarl);
+console.log(cat instanceof Cat); */
+
+
+// 3. isPrototypeOf 判断一个对象是否是另一个对象的原型
+// 只要调用者在传入对象的原型链上就返回true
+// console.log(Animarl.prototype.isPrototypeOf(cat));
+
+
+// 4. in 判断某一个对象是否拥有某一个属性
+// 属性只要是在原型链中都返回 true
+class Person{
+  constructor(name,age){
+    this.name = name;
+    this.age = age;
+  }
+}
+Person.prototype.height = 188;
+let per = new Person('Kuak', 18);
+console.log('height' in per);
+
+// 判断对象自身是否拥有某个属性
+console.log(per.hasOwnProperty('height'));
+console.log(per.hasOwnProperty('name'));
+
+
+
+</script>  
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+    // ES6 之前定义类的写法
+    function Person(name,age){
+      // 实例属性
+      this.name = name;
+      this.age = age;
+      // 实例方法
+      this.say = function(){
+        console.log(this.name, this.age);
+      }
+      // 静态属性
+      Person.num = 666;
+    
+      // 静态方法
+      Person.run = function (){
+        console.log('run');
+      }
+    }
+     */
+
+    // ES6 及之后定义类的写法
+    class Person {
+      // 构造函数
+      constructor(name, age) {
+        // 实例属性都写在构造函数中
+        this.name = name;
+        this.age = age;
+        // 实例方法
+        this.hi = function () {
+          console.log('原型方法');
+        }
+      }
+      // 实例方法
+      say() {
+        console.log(this.name, this.age)
+      }
+      // 静态属性不支持
+      // static num = 666;
+      // 静态方法
+      static run() {
+        console.log('run');
+      }
+    }
+
+    let p1 = new Person('Kuak', 19);
+    let p2 = new Person('Egon', 22);
+    console.log(p1.hi === p2.hi);
+    console.log(p1.say === p2.say);
+
+    // class定义的类， 无法自定义原型对象，要想添加原型方法需要动态的添加
+    Person.prototype.protoRun = function () {
+      console.log('Person prototype run');
+    }
+    let p3 = new Person('Kuak', 19);
+    let p4 = new Person('Egon', 22);
+    console.log(p3.protoRun === p4.protoRun);
+
+
+// ES6 类中的继承
+class Student extends Person{
+  constructor(myName, myAge, myScore){
+    super(myName, myAge);
+    this.score = myScore;
+  }
+  study(){
+    console.log('day day up');
+  }
+}
+let stu = new Student('Kuak', 19, 100);
+stu.say();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <h1>1</h1>
+    <h2>2</h2>
+    <p class="item">3</p>
+    <p>4</p>
+    <span>5</span>
+</div>
+<script>
+/* 
+1. 创建节点
+2. 在某个元素里面新增元素，作为最后一个子元素
+3. 插入节点
+4. 删除节点
+5. 克隆节点
+ */
+
+//  创建节点
+var mySpan = document.createElement('span');
+// console.log(mySpan);
+
+// 添加节点
+var myDiv = document.createElement('div');
+var oA = document.createElement('a');
+myDiv.appendChild(oA);
+// console.log(myDiv);
+
+// 插入节点
+var oSpan = document.createElement('span');
+var oDiv = document.querySelector("div");
+var oH1 = document.querySelector("h1");
+var oP = document.querySelector("p");
+oDiv.insertBefore(oSpan, oP);
+
+// 删除节点
+var oDiv = document.querySelector('div');
+// oDiv.parentNode.removeChild(oDiv);
+
+// 克隆节点
+var ospan = document.querySelector('span');
+var newSpan = ospan.cloneNode(true);
+console.log(newSpan);
+</script>  
+</body>
+</html>

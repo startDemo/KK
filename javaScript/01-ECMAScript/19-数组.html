@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>数组</title>
+</head>
+
+<body>
+  <script>
+    /* 
+    1.数组: 数组属于引用数据类型，可以专用于存储一组数据
+    
+    2.创建数组
+      let ary = new Array(size)
+      let ary = [1, 2, 3]
+    
+    3.操作数组
+      ary[index] = data
+      ary[index]
+     */
+    // 一个小组所有成员的名字
+    var arr = new Array(3);
+    console.log(arr);
+    arr[0] = '孙空空';
+    arr[1] = '唐白白';
+    arr[2] = '沙静静';
+    arr[5] = '朱憨憨';
+    console.log(arr[4]);
+
+    // 一个小组所有成员的名字
+    var arr2 = ["唐白白", "孙空空", "朱憨憨", "沙静静"]
+    console.log(arr2);
+
+
+    /* 
+    4.注意点：
+      1.数组元素没有存放值，默认存储 undefined
+      2.访问不存在的值时，会返回 undefined
+      3.数组的存储空间不够时会自动扩容
+     */
+
+
+    // 5.数组的遍历
+    for (let i = 0; i < arr.length; i++) {
+      console.log(arr[i]);
+    }
+
+    // 6.数组的解构赋值
+    // 6.1 左右两边一样
+    var [a, b, c] = ['a', 'b', 'c']
+    console.log(a, b, c);
+
+    // 6.2 左右两边不一样
+    var [a, b] = ['a', 'b', 'c']
+    console.log(a, b)
+    var [a, b, c] = ['a', 'b']  // 左边比右边多时，默认填充 undefined
+    console.log(a, b, c);
+
+    // 6.3 左右两边不一样可以设置默认值
+    var [a = 'a', b = 'b', c = 'c'] = [1]  // 左右两边同位置都有值，那么右边的值会覆盖左边的默认值
+    console.log(a, b, c);
+
+    // 6.4 ES6 扩展运算符
+    var [a, b] = [1, 2, 3];
+    console.log(a, b);
+    var [a, ...b] = [1, 2, 3]  // 会打包剩下的值
+    console.log(a, b);
+
+
+    // 7 数组常用方法
+
+    // 7.1 arr.splice(开始位置, 替换个数, 新值1,新值2...) 删除或替换，返回删除或替换的值
+    // 0  个参数 啥也不干
+    // 1  个参数 从指定位置到结束都删掉
+    // 2  个参数 从指定位置删除指定个数
+    // 3+ 个参数 splice(开始位置, 替换个数, 新值1,新值2...)
+    var arr = [1, 2, 3, 4, 5]
+    var res = arr.splice();
+    var res = arr.splice(1);           // 从指定位置到结束都删掉
+    var res = arr.splice(0, 1);         // 从指定位置删除指定个数
+    var res = arr.splice(0, 1, 233, 233)  // splice(开始位置, 替换个数, 新值1,新值2...)
+    console.log(arr);
+    console.log(res);
+
+    // 7.2 arr.push() arr.unshift() 在数组的结尾或开头添加值，并返回数组添加值之后的长度
+    var arr = [1, 2, 3];
+    res = arr.push(233);
+    res = arr.push(588, 666);
+    console.log(res);
+    console.log(arr);
+
+    // 7.3 arr.pop()/arr.shift() 从数组的结尾或开头删除一条数据,并返回删除的值
+    var arr = [1, 2, 3, 4];
+    var res = arr.pop();
+    console.log(res);
+    console.log(arr);
+    var res = arr.shift();
+    console.log(res);
+    console.log(arr);
+    // 需要删除多条数据使用 spliece
+
+    // 7.4 arr.toString() 将数组转为字符串
+    var arr = [1, 2, 3];
+    var res = arr.toString();
+    console.log(arr);
+    console.log(res);
+
+    // 7.5 arr.join() 将数组拼接为字符串
+    // 没参 就和 toString() 一毛一样
+    // 有参 就将数组以该参数拼接为字符串
+    var arr = [1, 2, 3];
+    var res = arr.join()
+    console.log(arr);
+    console.log(res);
+    var res = arr.join('<=>');
+    console.log(res);
+
+    // 7.6 两个数组拼成一个数组
+    var arr1 = [1, 2, 3];
+    var arr2 = [4, 5, 6];
+    var res = arr1.concat(arr2)
+    console.log(res);
+
+    // 7.7 反转数组
+    var arr = [1, 2, 3, 4];
+    var res = arr.reverse();
+    console.log(res);
+
+    // 7.8 indexOf / lastIndexOf 找指定元素，找到了则返回索引值，未找到返回 -1
+    var arr = [1, 2, 3, 4];
+    var res = arr.indexOf(2)
+    console.log(res);
+
+    var arr = [233, 666, 999, 888, 588, 886]
+    var max = 0;
+
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] > max) max = arr[i];
+    }
+    console.log(max);
+
+
+
+    // 数组高级 API
+    let myArr = [1, 2, 5, 7, 10];
+    // 遍历数组
+    // 传统方式
+    for (let i = 0; i < myArr.length; i++) {
+      console.log(myArr[i]);
+    }
+
+    // 利用ES6推出的 for of 遍历数组
+    for (let val of myArr) {
+      console.log(val);
+    }
+
+    // 利用数组的forEach方法遍历数组
+    myArr.forEach(function (val, index) {
+      console.log(index, val);
+    });
+
+    // forEach 原理
+    Array.prototype.myForEach = function (fn) {
+      for (let i = 0; i < this.length; i++) {
+        fn(this[i], i, this);
+      }
+    };
+    myArr.myForEach(function (val, index, arr) {
+      console.log(val, index, arr);
+    });
+
+
+
+    console.log('---------------------');
+    // let myArr = [1, 2, 5, 7, 10];
+    // findIndex 找到返回索引，未找到返回-1
+    let val1 = myArr.findIndex(function (val, index, arr) {
+      if (val === 2) {
+        return true;
+      }
+    })
+    console.log(val1);  // 1
+
+    let val2 = myArr.find(function (val, index, arr) {
+      if (val === 2) {
+        return true;
+      }
+    });
+    console.log(val2);
+
+
+    // findIndex  的实现
+    Array.prototype.myFindIndex = function (fn) {
+      for (let i = 0; i < this.length; i++) {
+        if (fn(this[i], i, this)) {
+          return i;
+        }
+      }
+    };
+    var val = myArr.myFindIndex(function (val, index, arr) {
+      if (val === 10) {
+        return true;
+      }
+    });
+    console.log(val);
+
+    // find 的实现
+    Array.prototype.myFind = function (fn) {
+      for (let i = 0; i < this.length; i++) {
+        if (fn(this[i], i, this)) {
+          return this[i];
+        }
+      }
+    }
+    var val = myArr.myFind(function (val, index, arr) {
+      if (val === 10) {
+        return true;
+      }
+    });
+    console.log(val);
+
+    var a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // 数组的filter方法
+    var res = a.filter(function (val, index, arr) {
+      if (val % 2 === 0) {
+        return true;
+      }
+    });
+    console.log(res);
+    // filter方法的实现
+    Array.prototype.myFilter = function (fn) {
+      var curArr = [];
+      for (var i = 0; i < this.length; i++) {
+        var result = fn(this[i], i, this);
+        if (result) {
+          curArr.push(this[i]);
+        }
+      }
+      return curArr;
+    };
+    var res = a.myFilter(function (val, index, arr) {
+      if (val % 2 === 0) {
+        return true;
+      }
+    });
+    console.log(res);
+
+    var a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // 数组的map方法
+    var res = a.map(function (val, index, arr) {
+      if (val % 2 === 0) {
+        return val;
+      }
+    })
+    console.log('map res => ', res);
+
+    Array.prototype.myMap = function (fn) {
+      var newArr = new Array(this.length);
+      newArr.fill(undefined);
+      for (let i = 0; i < this.length; i++) {
+        var result = fn(this[i], i, this)
+        if (result) {
+          newArr[i] = this[i];
+        }
+      }
+      return newArr;
+    }
+    var res = a.myMap(function (val, index, arr) {
+      if (val % 2 === 0) {
+        return true;
+      }
+    });
+    console.log('map res => ', res);
+
+
+var a = [2, 3, 4, 5]
+// 遍历数组的同时删除元素
+for (let len = a.length, i = len - 1; i >= 0; i--) {
+  console.log('当前遍历的值', a[i], '数组', a);
+  a.splice(i, 1)
+  console.log('数组长度', a.length);
+}
+
+
+
+
+
+var sortArr = [233, 111, 558, 999, 666, 888 ];
+sortArr.sort(function(a1, a2){
+  return a1 - a2;
+});
+console.log('sortArr', sortArr);
+  </script>
+</body>
+
+</html>

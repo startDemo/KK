@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>直接获取元素</title>
+</head>
+
+<body>
+  <div class="father">
+    <form>
+      <input type="text" name="test">
+      <input type="password" name="test">
+    </form>
+  </div>
+  <div class="father" id="box">我是div</div>
+  <script>
+    /*
+    1. 通过 ID 获取指定元素
+    2. 通过 class 获取元素
+    3. 通过 标签名 获取元素
+    4. 通过 name 获取元素
+    5. 通过选择器获取元素
+     */
+
+//  通过 id 获取元素
+var oneDiv = document.getElementById("box");
+console.log(oneDiv);
+
+// 通过 class 获取元素
+var divS = document.getElementsByClassName("father");
+console.log(divS);
+
+// 通过 标签名 获取元素
+var tag = document.getElementsByTagName("form");
+console.log(tag);
+
+// 通过 name 获取元素
+var ipt = document.getElementsByName('test');
+console.log(ipt);
+
+// 通过选择器获取元素
+var myD = document.querySelector('div');
+console.log(myD);
+
+var allDiv = document.querySelectorAll('div');
+console.log(allDiv);
+  </script>
+</body>
+
+</html>
